@@ -18,4 +18,5 @@ val Blue100 = Color(0xFF0066FF)
 val White100 = Color(0xFFFFFFFF)
 val Black100 = Color(0xFF000000)
 val Gray100 = Color(0xFF7E848D)
+val lightGray100 = Color(0xFFA2A2A7)
 
