@@ -14,11 +14,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Language
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.Person2
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mobilebanking.presentation.design_system.image.CwImage
 import com.example.mobilebanking.presentation.screen.ChangePassword
-import com.example.mobilebanking.presentation.screen.Language
+import com.example.mobilebanking.presentation.screen.LanguageRoute
 import com.example.mobilebanking.ui.theme.Gray100
 
 @Composable
@@ -108,7 +106,7 @@ private fun MyProfileScreenPreview() {
                 ProfileTab(
                     imageRes = Icons.Default.Language,
                     name = "Language",
-                    route = Language
+                    route = LanguageRoute
                 ),
                 ProfileTab(
                     imageRes = Icons.Default.Language,

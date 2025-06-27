@@ -1,11 +1,9 @@
 package com.example.mobilebanking.presentation.design_system.field
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.HorizontalDivider
@@ -22,7 +20,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -38,7 +35,7 @@ fun CwInputEditField(
     modifier: Modifier = Modifier,
     value: String = "",
     onValueChange: (String) -> Unit,
-    leadingIconRes: ImageVector,
+    leadingIconRes: ImageVector? = null,
     hint: String,
     title: String,
     isSecret: Boolean = false,
@@ -69,13 +66,15 @@ fun CwInputEditField(
                 PasswordVisualTransformation(mask = '*')
             } else VisualTransformation.None,
             placeholder = { Text(text = hint, color = lightGray100) },
-            leadingIcon = {
-                Image(
-                    leadingIconRes,
-                    contentDescription = null,
-                    colorFilter = ColorFilter.tint(lightGray100)
-                )
-            },
+            leadingIcon = if (leadingIconRes != null) {
+                {
+                    Icon(
+                        imageVector = leadingIconRes,
+                        contentDescription = null,
+                        tint = Color.Gray
+                    )
+                }
+            } else null,
             trailingIcon = {
                 if (isSecret) {
                     IconButton(
@@ -120,7 +119,7 @@ private fun CwInputEditFieldPreview() {
                         hint = "$it value",
                         value = "gfdgfd",
                         isSecret = it == 2,
-                        leadingIconRes = Icons.Default.Email,
+                        leadingIconRes = null,
                         onValueChange = {},
                         title = "asds",
 

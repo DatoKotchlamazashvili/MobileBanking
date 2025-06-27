@@ -5,7 +5,7 @@ interface Route
 
 
 
-object Language: Route
+object LanguageRoute: Route
 object MyProfile: Route
 object ContactUs: Route
 object ChangePassword: Route

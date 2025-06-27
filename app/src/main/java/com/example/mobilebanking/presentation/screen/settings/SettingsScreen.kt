@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mobilebanking.presentation.design_system.field.CwNavigateWithText
 import com.example.mobilebanking.presentation.design_system.image.CwImage
-import com.example.mobilebanking.presentation.screen.Language
+import com.example.mobilebanking.presentation.screen.LanguageRoute
 import com.example.mobilebanking.presentation.screen.MyProfile
 import com.example.mobilebanking.presentation.screen.Route
 import com.example.mobilebanking.ui.theme.lightGray100
@@ -101,7 +101,7 @@ private fun SettingsScreenPreview() {
                         SettingsRoute(
                             mainText = "Language",
                             subText = "English",
-                            route = Language
+                            route = LanguageRoute
                         ),
                         SettingsRoute(
                             mainText = "Language",
@@ -115,7 +115,7 @@ private fun SettingsScreenPreview() {
                         SettingsRoute(
                             mainText = "Language",
                             subText = "English",
-                            route = Language
+                            route = LanguageRoute
                         ),
                         SettingsRoute(
                             mainText = "Language",
