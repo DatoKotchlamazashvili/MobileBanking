@@ -20,7 +20,6 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -44,19 +43,19 @@ enum class MonthText {
 @Composable
 fun CwDatePicker(
     modifier: Modifier = Modifier,
+    date: Long,
+    title: String,
     onDateSelected: (Long?) -> Unit,
     monthFormat: MonthText = MonthText.Number,
 ) {
     val datePickerState = rememberDatePickerState()
     var isShown by remember { mutableStateOf(false) }
-    var selectedDateMillis by remember { mutableLongStateOf(0L) }
-
-    val dateParts = remember(selectedDateMillis, monthFormat) {
-        parseDateParts(selectedDateMillis, monthFormat)
+    val dateParts = remember(date, monthFormat) {
+        parseDateParts(date, monthFormat)
     }
 
     Column(modifier = modifier) {
-        Text("Month due By", color = Gray100, fontSize = 12.sp)
+        Text(title, color = Gray100)
 
         Row(
             modifier = Modifier
@@ -97,7 +96,6 @@ fun CwDatePicker(
                 confirmButton = {
                     TextButton(onClick = {
                         datePickerState.selectedDateMillis?.let {
-                            selectedDateMillis = it
                             onDateSelected(it)
                         }
                         isShown = false
@@ -118,13 +116,14 @@ fun CwDatePicker(
 }
 
 
-
 @Preview
 @Composable
 private fun CwDatePickerPreview() {
     Surface {
         CwDatePicker(
             onDateSelected = { }, monthFormat = MonthText.Text,
+            title = "Months bue by",
+            date = 5L,
         )
     }
 }

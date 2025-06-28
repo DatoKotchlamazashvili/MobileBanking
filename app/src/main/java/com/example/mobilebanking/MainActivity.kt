@@ -40,10 +40,6 @@ class MainActivity : ComponentActivity() {
                         }
 
 
-                        CwDatePicker(
-                            onDateSelected = {
-                            }, monthFormat = MonthText.Text
-                        )
                     }
                 }
             }

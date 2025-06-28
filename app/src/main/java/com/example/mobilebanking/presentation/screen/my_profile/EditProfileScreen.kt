@@ -1,10 +1,8 @@
 package com.example.mobilebanking.presentation.screen.my_profile
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -31,6 +29,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.mobilebanking.presentation.design_system.date.CwDatePicker
+import com.example.mobilebanking.presentation.design_system.date.MonthText
 import com.example.mobilebanking.presentation.design_system.field.CwInputEditField
 
 @Composable
@@ -40,6 +40,7 @@ fun EditProfileScreen(
     email: String,
     phoneNumber: String,
     joinedAt: String,
+    birthDay: Long,
     onEmailChanged: (String) -> Unit,
     onPhoneNumberChanged: (String) -> Unit,
     onFullNameChanged: (String) -> Unit,
@@ -120,16 +121,14 @@ fun EditProfileScreen(
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        Text(text = "Birth Date", color = Color.Gray)
         Spacer(modifier = Modifier.height(12.dp))
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(text = "28")
-            Text(text = "September")
-            Text(text = "2000")
-        }
+
+        CwDatePicker(
+            onDateSelected = { },
+            monthFormat = MonthText.Text,
+            date = birthDay,
+            title = "Birth Day"
+        )
 
         Spacer(modifier = Modifier.height(48.dp))
 
@@ -152,7 +151,8 @@ private fun EditProfileScreenPreview() {
             phoneNumber = "+995576435345",
             joinedAt = "21 sep 2024",
             onEmailChanged = {},
-            onPhoneNumberChanged = { }
+            onPhoneNumberChanged = { },
+            birthDay = 2323465L
         ) { }
     }
 }
